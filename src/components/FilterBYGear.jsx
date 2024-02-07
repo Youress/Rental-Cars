@@ -3,7 +3,7 @@ import { useFilter } from "../Context/FilterReducer";
 const FilterByGear = ({onChange}) => {
   const {state} = useFilter();
   return (
-    <div className=" pb-5">
+    <div className=" p-4">
       <h4 className="text-md font-semibold mb-2">Vehicle Gear</h4>
       
       {['Automatic',"Manual"].map((type) => (

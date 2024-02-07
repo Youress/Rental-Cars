@@ -65,3 +65,7 @@ body{
     width: 100%;
     position: relative;
 }
+
+input[type="checkbox"]:checked + label {
+    color: rgba(255,95,0,1);
+  }

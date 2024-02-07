@@ -67,14 +67,14 @@ export const FilterProvider = ({ children }) => {
  const HandleGearChange = (event) => {
   const carsGear = event.target.value;
 
-  const selectedGear = state.selectedGear.includes(carsGear)
+  const filteredGear = state.selectedGear.includes(carsGear)
     ? [] 
     : [carsGear];  
 
-  dispatch({ type: "SET_SELECTED_GEAR", payload: selectedGear });
+  dispatch({ type: "SET_SELECTED_GEAR", payload: filteredGear });
 
   const filteredCars = state.cars.filter((car) =>
-    selectedGear.length === 0 ? true : selectedGear.includes(car.gear)
+  filteredGear.length === 0 ? true : car.gear === carsGear
   );
 
   dispatch({ type: "SET_FILTERED_CARS", payload: filteredCars });

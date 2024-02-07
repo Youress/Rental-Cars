@@ -1,27 +1,28 @@
-import React from 'react'
+import React from "react";
 import { useFilter } from "../Context/FilterReducer";
-const FilterType = ({onChange}) => {
-  const {clearFilter ,state} = useFilter();
+const FilterType = ({ onChange, id }) => {
+  const { state } = useFilter();
   return (
-    <div className="pb-5">
+    <div className="p-4 ">
       <h4 className="text-md font-semibold mb-2">Vehicle type</h4>
-      <div>
-        <button onClick={()=>clearFilter()}>Clear Filter</button>
-      </div>
-      {['suv','multiseater',"sedan"].map((type) => (
-        <label key={type} className="flex items-center space-x-2">
+      {["suv", "multiseater", "sedan"].map((type) => (
+        <div className="flex items-center gap-2">
+          
           <input
+            id={id}
             type="checkbox"
             className="rounded"
             value={type}
             checked={state.selectedType.includes(type)}
             onChange={onChange}
           />
-          <span>{type}</span>
-        </label>
+          <label key={type} className="flex items-center space-x-2" for={id}>
+            {type}
+          </label>
+        </div>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default FilterType
+export default FilterType;
