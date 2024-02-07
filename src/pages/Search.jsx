@@ -88,6 +88,7 @@ const SearchBar = () => {
 
               <div className="flex  px-2 py-1 gap-2 mdx:flex-col">
                 <div className="w-[200px] mdx:w-full">
+                <label >Pick-up date</label>
                   <DatePicker
                     selected={checkIn}
                     onChange={(date) => setCheckIn(date)}
@@ -106,6 +107,7 @@ const SearchBar = () => {
                   />
                 </div>
                 <div className="w-[200px] mdx:w-full">
+                  <label >Return date</label>
                   <DatePicker
                     selected={checkOut}
                     onChange={(date) => setCheckOut(date)}
@@ -119,7 +121,7 @@ const SearchBar = () => {
                     timeIntervals={60}
                     timeFormat="hh:mm"
                     placeholderText="Check-out Date"
-                    className="min-w-full bg-white p-2 focus:outline-none border rounde"
+                    className="min-w-full bg-white p-2 focus:outline-none border rounded-md"
                     wrapperClassName="min-w-full"
                   />
                 </div>

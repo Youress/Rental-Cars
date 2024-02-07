@@ -1,0 +1,118 @@
+import {
+  useReducer,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
+import axios from "axios";
+
+const initialState = {
+  cars: [], // Your initial list of cars
+  filteredCars: [], // Filtered cars based on type
+  selectedType: [],
+  selectedGear: [], // Selected types for filtering
+};
+
+const filterReducer = (state, action) => {
+  switch (action.type) {
+    case "SET_CARS":
+      return { ...state, cars: action.payload };
+    case "SET_FILTERED_CARS":
+      return { ...state, filteredCars: action.payload };
+    case "SET_SELECTED_TYPE":
+      return { ...state, selectedType: action.payload };
+    case "SET_SELECTED_GEAR":
+      return { ...state, selectedGear: action.payload };
+    case "CLEAR_FILTER":
+      return { ...state, filteredCars: action.payload };
+    default:
+      return state;
+  }
+};
+
+const FilterContext = createContext();
+
+export const FilterProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(filterReducer, initialState);
+  const [cars, setCars] = useState();
+  useEffect(() => {
+    // Function to fetch data
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://default-4ba94-default-rtdb.firebaseio.com/cars.json"
+        );
+        // Handle the JSON data
+        const jsonData = response.data;
+        console.log(jsonData);
+
+        // Dispatch actions after fetching data
+        setCars(jsonData);
+        dispatch({ type: "SET_CARS", payload: jsonData });
+        dispatch({ type: "SET_FILTERED_CARS", payload: jsonData });
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, [dispatch]);
+
+  const clearFilter = () => {
+    dispatch({ type: "SET_SELECTED_TYPE", payload: [] });
+    dispatch({ type: "CLEAR_FILTER", payload: cars });
+    dispatch({ type: "SET_SELECTED_GEAR", payload: [] });
+  };
+ const HandleGearChange = (event) => {
+  const carsGear = event.target.value;
+
+  const selectedGear = state.selectedGear.includes(carsGear)
+    ? [] 
+    : [carsGear];  
+
+  dispatch({ type: "SET_SELECTED_GEAR", payload: selectedGear });
+
+  const filteredCars = state.cars.filter((car) =>
+    selectedGear.length === 0 ? true : selectedGear.includes(car.gear)
+  );
+
+  dispatch({ type: "SET_FILTERED_CARS", payload: filteredCars });
+};
+
+
+  const handleTypeChange = (event) => {
+    const type = event.target.value;
+    const selectedType = state.selectedType.includes(type)
+      ? state.selectedType.filter((t) => t !== type)
+      : [...state.selectedType, type];
+
+    dispatch({ type: "SET_SELECTED_TYPE", payload: selectedType });
+
+    // Filter cars based on selected types
+    const filteredCars = state.cars.filter((car) =>
+      selectedType.length === 0 ? true : selectedType.includes(car.type)
+    );
+
+    dispatch({ type: "SET_FILTERED_CARS", payload: filteredCars });
+  };
+
+  return (
+    <FilterContext.Provider
+      value={{
+        state,
+        dispatch,
+        handleTypeChange,
+        clearFilter,
+        HandleGearChange,
+      }}
+    >
+      {children}
+    </FilterContext.Provider>
+  );
+};
+export default FilterProvider;
+
+export const useFilter = () => {
+  return useContext(FilterContext);
+};

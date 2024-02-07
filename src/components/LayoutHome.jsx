@@ -2,6 +2,7 @@ import React from 'react'
 import BarHeader from './BarHeader'
 import Header from './Header'
 import { Outlet } from 'react-router-dom'
+import Footer from './Footer'
 
 const LayoutHome = () => {
   return (
@@ -9,6 +10,7 @@ const LayoutHome = () => {
     <BarHeader/>
     <Header/>
     <Outlet/>
+    <Footer/>
     </>
   )
 }

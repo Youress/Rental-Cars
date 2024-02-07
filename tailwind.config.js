@@ -6,9 +6,16 @@ module.exports = {
       colors: {
         primebrand: 'rgba(255,95,0,1)', // Replace 'customColor' with your desired color name
         primebrandfocus: 'rgb(255, 85, 0)', // Replace 'customColor' with your desired color name
+        primegray: 'rgb(244, 244, 249)', // Replace 'customColor' with your desired color name
+        sectiongray: 'rgb(242, 242, 242)', // Replace 'customColor' with your desired color name
       },
       gridTemplateColumns: {
         auto1fr: '1fr auto',
+        twosec : '200px 1fr '
+      },
+      fontFamily: {
+        'roboto': ['Roboto', 'sans-serif','RobotoAria']
+        
       },
       screens: {
         '2xlx': {'max': '1535px'},

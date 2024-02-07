@@ -4,12 +4,14 @@ import "./input.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { SearchContextProvider } from "./Context/SearchContext";
-
+import { FilterProvider } from "./Context/FilterReducer";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <SearchContextProvider>
-      <App />
+      <FilterProvider>
+        <App />
+      </FilterProvider>
     </SearchContextProvider>
   </BrowserRouter>
 );
