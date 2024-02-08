@@ -88,8 +88,9 @@ const SearchBar = () => {
 
               <div className="flex  px-2 py-1 gap-2 mdx:flex-col">
                 <div className="w-[200px] mdx:w-full">
-                <label >Pick-up date</label>
+                  <label>Pick-up date</label>
                   <DatePicker
+                    required
                     selected={checkIn}
                     onChange={(date) => setCheckIn(date)}
                     selectsStart
@@ -107,8 +108,9 @@ const SearchBar = () => {
                   />
                 </div>
                 <div className="w-[200px] mdx:w-full">
-                  <label >Return date</label>
+                  <label>Return date</label>
                   <DatePicker
+                    required
                     selected={checkOut}
                     onChange={(date) => setCheckOut(date)}
                     selectsStart

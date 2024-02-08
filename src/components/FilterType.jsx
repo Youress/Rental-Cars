@@ -6,7 +6,7 @@ const FilterType = ({ onChange, id }) => {
     <div className="p-4 ">
       <h4 className="text-md font-semibold mb-2">Vehicle type</h4>
       {["suv", "multiseater", "sedan"].map((type) => (
-        <div className="flex items-center gap-2">
+        <div key={type}  className="flex items-center gap-2">
           
           <input
             id={id}
@@ -16,7 +16,7 @@ const FilterType = ({ onChange, id }) => {
             checked={state.selectedType.includes(type)}
             onChange={onChange}
           />
-          <label key={type} className="flex items-center space-x-2" for={id}>
+          <label  className="flex items-center space-x-2" htmlFor={id}>
             {type}
           </label>
         </div>

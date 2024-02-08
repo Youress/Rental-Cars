@@ -4,8 +4,8 @@ import { GiGearStickPattern } from "react-icons/gi";
 import { IoMdSpeedometer } from "react-icons/io";
 import { BsThreeDots } from "react-icons/bs";
 
-const CarsCard = ({ car }) => {
-  const { description, gear, imageUrl, name, price, seater, type } = car;
+const CarsCard = ({ car, total }) => {
+  const { description, gear, imageUrl, name, price, seater } = car;
 
   return (
     <div className="bg-white shadow-2xl rounded-md min-w-72 mdx:w-full ">
@@ -47,10 +47,15 @@ const CarsCard = ({ car }) => {
             </div>
           </div>
           <div>
-            <p className="text-primebrand font-bold text-xl">
-              ${price}
-              <span>/day</span>
-            </p>
+            <div>
+              <p className="text-primebrand font-bold text-xl">
+                ${price}
+                <span>/day</span>
+              </p>
+            </div>
+            <div>
+              <span className="font-bold ">${price * total} total for {total} days</span>
+            </div>
           </div>
         </div>
       </button>

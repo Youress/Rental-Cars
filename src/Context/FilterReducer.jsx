@@ -45,8 +45,6 @@ export const FilterProvider = ({ children }) => {
         );
         // Handle the JSON data
         const jsonData = response.data;
-        console.log(jsonData);
-
         // Dispatch actions after fetching data
         setCars(jsonData);
         dispatch({ type: "SET_CARS", payload: jsonData });
@@ -63,7 +61,23 @@ export const FilterProvider = ({ children }) => {
     dispatch({ type: "SET_SELECTED_TYPE", payload: [] });
     dispatch({ type: "CLEAR_FILTER", payload: cars });
     dispatch({ type: "SET_SELECTED_GEAR", payload: [] });
+    dispatch({ type: "SORT_PRICE", payload: false });
   };
+
+const sortBYPrice = (price) =>{
+  if(price === 'low'){
+    const filterByPrice = state.cars.sort((a,b)=> a.price - b.price)
+    dispatch ({type :'SET_FILTERED_CARS',payload :filterByPrice})
+  }else{
+    const filterByPrice = state.cars.sort((a,b)=> b.price - a.price)
+    dispatch ({type :'SET_FILTERED_CARS',payload :filterByPrice})
+  }
+
+}
+
+
+
+
  const HandleGearChange = (event) => {
   const carsGear = event.target.value;
 
@@ -105,6 +119,7 @@ export const FilterProvider = ({ children }) => {
         handleTypeChange,
         clearFilter,
         HandleGearChange,
+        sortBYPrice
       }}
     >
       {children}
