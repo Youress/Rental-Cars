@@ -3,13 +3,20 @@ import { BsPeople } from "react-icons/bs";
 import { GiGearStickPattern } from "react-icons/gi";
 import { IoMdSpeedometer } from "react-icons/io";
 import { BsThreeDots } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 const CarsCard = ({ car, total }) => {
-  const { description, gear, imageUrl, name, price, seater } = car;
+  const { description, gear, imageUrl, name, price, seater, id } = car;
+  const navigate = useNavigate();
 
   return (
     <div className="bg-white shadow-2xl rounded-md min-w-72 mdx:w-full ">
-      <button className="pointer p-4 text-left w-full">
+      <button
+        onClick={() =>
+          navigate(`${id}`)
+        }
+        className="pointer p-4 text-left w-full"
+      >
         <div className="">
           <div className="mb-2">
             <h4 className="font-bold">{name}</h4>
@@ -54,7 +61,9 @@ const CarsCard = ({ car, total }) => {
               </p>
             </div>
             <div>
-              <span className="font-bold ">${price * total} total for {total} days</span>
+              <span className="font-bold ">
+                ${price * total} total for {total} days
+              </span>
             </div>
           </div>
         </div>

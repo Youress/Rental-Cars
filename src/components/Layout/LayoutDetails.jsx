@@ -1,8 +1,8 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { Outlet } from "react-router-dom";
-import Footer from "./Footer";
-import HeaderTwo from "./HeaderTwo";
-import { useSearchContext } from "../Context/SearchContext";
+import Footer from "../Footer";
+import HeaderTwo from "../HeaderTwo";
+import { useSearchContext } from "../../Context/SearchContext";
 
 const LayoutDetails = () => {
   const search = useSearchContext();
@@ -13,7 +13,7 @@ const LayoutDetails = () => {
   // two dates
   let rangeDays = Math.round(Difference_In_Time / (1000 * 3600 * 24));
 
-  const days = [rangeDays]
+  const days = [rangeDays];
 
   return (
     <>

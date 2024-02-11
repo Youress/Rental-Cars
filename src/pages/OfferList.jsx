@@ -8,11 +8,10 @@ import { FaArrowUpLong } from "react-icons/fa6";
 import { FaArrowDownLong } from "react-icons/fa6";
 
 const OfferList = () => {
-  const { state, handleTypeChange, HandleGearChange, clearFilter,sortBYPrice,dispatch } =
+  const { state, handleTypeChange, HandleGearChange, clearFilter,sortBYPrice } =
     useFilter();
   const [sortDrop, setSortDrop] = useState(false);
   const [days] = useOutletContext();
-  console.log(days);
 
   return (
     <section className="bg-sectiongray pb-4">
@@ -72,7 +71,6 @@ const OfferList = () => {
           </div>
         </div>
 
-        <div></div>
       </div>
     </section>
   );

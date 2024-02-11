@@ -45,7 +45,7 @@ const HeaderTwo = () => {
             </a>
           </div>
         </div>
-        <div className="bg-primegray rounded-md md:min-w-96 font-roboto">
+        <div className="bg-[rgb(244, 244, 249)] rounded-md md:min-w-96 font-roboto">
           <div className="py-2 px-4">
             <div className="font-bold text-xs">
               <span>{search.destination}</span>
