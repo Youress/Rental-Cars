@@ -10,6 +10,7 @@ import { MdKeyboardArrowLeft } from "react-icons/md";
 import { IoCheckmark } from "react-icons/io5";
 import { useOutletContext } from "react-router-dom";
 import axios from "axios";
+import Loading from "../components/Loading";
 
 const Milage = () => {
   const [car ,setCar] = useState()
@@ -18,14 +19,14 @@ const Milage = () => {
   let location = useLocation();
   let navigate = useNavigate();
   const [days] = useOutletContext();
+  const isPage = location.pathname.includes("/addson");
 
-  const [show, setShow] = useState(true);
+
   const handleclick = () => {
     if (location.pathname === `/detailsPage/${id}`) {
-      navigate("protection");
-    } else if (location.pathname === `/detailsPage/${id}/protection`) {
-      setShow(false);
       navigate("addson");
+    } else if (location.pathname === `/detailsPage/${id}/addson`) {
+      navigate("checkout");
     } else {
       navigate(".");
     }
@@ -51,21 +52,21 @@ const Milage = () => {
   }, [id]);
   if(loading){
     return (
-       <h1 className="font-bold text-3xl my-4 p-6">loading</h1>
+       <Loading/>
       )
   }else{
     return (
     <section className="mt-4 px-10 bg-sectiongray">
       <div className="pb-12 pt-4 flex items-center gap-4 ">
         <div className="cursor-pointer">
-          <NavLink to="..">
+          <NavLink to={isPage ?"." : '..'}>
             <MdKeyboardArrowLeft className="text-4xl" />
           </NavLink>
         </div>
-        <div className="font-bold text-2xl">Choose your protection</div>
+        <div className="font-bold text-2xl">{isPage ? 'Choose your add-ons':'Choose your protection' }</div>
       </div>
       <div className="flex flex-wrap">
-        {show && (
+        {!isPage && (
           <div className="basis-3/4 px-2	">
             <div className="font-bold text-xl">Loss damage waiver</div>
             <div className="font-normal mb-8 ">
@@ -78,7 +79,7 @@ const Milage = () => {
           <Outlet />
         </div>
         <div className="px-2 md:basis-1/4 mdx:mt-4	">
-          <div className=" bg-white p-6 shadow-lg">
+          <div className=" bg-white p-6 shadow-box">
             <div className="flex mb-4 ">
               <div>
                 <div className="mb-">
