@@ -1,7 +1,6 @@
-import React, { useState ,useEffect } from "react";
+import React, { useState } from "react";
 import { BsBookmarkStarFill } from "react-icons/bs";
 import { IoCheckmark } from "react-icons/io5";
-import Loading from "react-loading";
 
 const Protection = () => {
 
