@@ -5,9 +5,12 @@ module.exports = {
     extend: {
       colors: {
         primebrand: "rgba(255,95,0,1)", // Replace 'customColor' with your desired color name
-        primebrandfocus: "rgb(255, 85, 0)", // Replace 'customColor' with your desired color name
+        secondary: "rgb(244, 244, 249)", // Replace 'customColor' with your desired color name
         primegray: "rgba(89,89,89,1)", // Replace 'customColor' with your desired color name
         sectiongray: "rgb(242, 242, 242)", // Replace 'customColor' with your desired color name
+      },
+      boxShadow: {
+        'box': 'rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px',
       },
       gridTemplateColumns: {
         auto1fr: "1fr auto",

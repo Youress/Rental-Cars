@@ -5,7 +5,6 @@ import LayoutHome from "./components/Layout/LayoutHome";
 import LayoutDetails from "./components/Layout/LayoutDetails";
 import OfferList from "./pages/OfferList";
 import DetailsCard from "./pages/DetailsCard";
-import Mileage from "./components/Mileage ";
 import Protection from "./components/Protection";
 import AddsOn from "./components/AddsOn";
 function App() {
@@ -17,8 +16,7 @@ function App() {
       <Route path="detailsPage" element={<LayoutDetails />}>
         <Route index element={<OfferList />} />
         <Route path=":id" element={<DetailsCard />}>
-          <Route index element={<Mileage />} />
-          <Route path="protection" element={<Protection />} />
+          <Route index element={<Protection />} />
           <Route path="addson" element={<AddsOn />} />
         </Route>
       </Route>
