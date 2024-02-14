@@ -24,9 +24,9 @@ const AddsOn = () => {
     setClickedIndex((prevIndex) => (prevIndex === index ? null : index));
   };
   return (
-    <div className="flex items-center flex-wrap  mdx:flex-col">
+    <div className="flex items-center flex-wrap ">
       {filterByCategory.map((service , index) => (
-        <div key={index} className="px-2 mdx:mb-2  mdx:basis-1/3  self-stretch flex flex-[1_1_50%] md:max-w-[50%] mb-4 ">
+        <div key={index} className="px-2 mdx:mb-2   self-stretch flex lg:flex-[1_1_50%] mds:flex-[1_1_100%] mds:max-w-full lg:max-w-[50%] mb-4 w-full">
           <div onClick={()=>{handleClick(index);handleServiceClick(service)}} className={`shadow-box bg-white border-2 w-full  ${
             clickedIndex === index ? "border-primebrand" : ""
           }`}>

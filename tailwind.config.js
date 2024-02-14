@@ -34,6 +34,8 @@ module.exports = {
 
         smx: { max: "639px" },
         // => @media (max-width: 639px) { ... }
+        mds: { max: "425px" },
+        // => @media (max-width: 639px) { ... }
       },
     },
   },

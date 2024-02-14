@@ -14,7 +14,7 @@ import Loading from "../components/Loading";
 import { useServices } from "../Context/ServicesProvider";
 
 const Milage = () => {
-  const {slectedServices} = useServices();
+  const { slectedServices } = useServices();
 
   const [car, setCar] = useState();
   const [loading, setLoading] = useState(true);
@@ -23,7 +23,6 @@ const Milage = () => {
   let navigate = useNavigate();
   const [days] = useOutletContext();
   const isPage = location.pathname.includes("/addson");
-
 
   const handleclick = () => {
     if (location.pathname === `/detailsPage/${id}`) {
@@ -77,12 +76,11 @@ const Milage = () => {
               </div>
             </div>
           )}
-          <div className="md:basis-3/4	">
+          <div className="md:flex-[1_1_66.6667%] md:max-w-[66.6667%] lg:flex-[1_1_75%] lg:max-w-[75%] sm:flex-[1_1_58.3333%] sm:max-w-[58.3333%]	">
             <Outlet />
           </div>
-          <div className="px-2 md:basis-1/4 mdx:mt-4	">
-           
-              <div className=" bg-white p-6 shadow-box">
+          <div className="px-2 md:flex-[1_1_33.3333%;] md:max-w-[33.3333%] lg:flex-[1_1_75%] lg:max-w-[25%] mdx:mt-4 sm:flex-[1_1_41.6667%] sm:max-w-[41.6667%]	">
+            <div className=" bg-white p-6 shadow-box">
               <div className="flex mb-4 ">
                 <div>
                   <div className="mb-">
@@ -116,13 +114,18 @@ const Milage = () => {
                     </span>
                     Drive up to 6,600 km, pay $0.15 per additional km
                   </li>
-                  {slectedServices.map((service)=>(<li key={service.id} className="flex items-center pb-4 gap-2">
-                    <span>
-                      <IoCheckmark className="text-2xl" />
-                    </span>
-                    {service.description}
-                  </li>))}
-                  
+                  {slectedServices.map((service) => (
+                    <li
+                      key={service.id}
+                      className="flex items-center pb-4 gap-2"
+                    >
+                      <span>
+                        <IoCheckmark className="text-2xl" />
+                      </span>
+                      {service.description}
+                    </li>
+                  ))}
+
                   <li className="flex items-center pb-4 gap-2">
                     <span></span>Drivers must have held their driver's license
                     for at least 2 year(s)
@@ -148,7 +151,7 @@ const Milage = () => {
                   next
                 </button>
               </div>
-            </div>            
+            </div>
           </div>
         </div>
       </section>
