@@ -19,18 +19,18 @@ const AddsOn = () => {
 
   useEffect(() => {
     handleScrollToTop();
-  });
+  },[]);
   const handleClick = (index) => {
-    setClickedIndex(index);
+    setClickedIndex((prevIndex) => (prevIndex === index ? null : index));
   };
   return (
     <div className="flex items-center flex-wrap gap-y-8">
       {filterByCategory.map((service , index) => (
-        <div key={index} className="px-2 mdx:mb-2  basis-1/3  self-stretch flex ">
-          <div onClick={()=>{handleClick(index);handleServiceClick(service)}} className={`shadow-box bg-white border-2  ${
+        <div key={index} className="px-2 mdx:mb-2  mdx:basis-1/3  self-stretch flex flex-[1_1_50%] max-w-[50%] ">
+          <div onClick={()=>{handleClick(index);handleServiceClick(service)}} className={`shadow-box bg-white border-2 w-full  ${
             clickedIndex === index ? "border-primebrand" : ""
           }`}>
-            <div className="p-4 cursor-pointer flex">
+            <div className="p-4 cursor-pointer flex h-full">
               <div className="min-w-8 mr-4">{service.img}</div>
               <div className="flex flex-col">
                 <div className="text-xl mb-4 font-bold">
@@ -39,8 +39,7 @@ const AddsOn = () => {
                 <div className="text-[0.875rem] mb-4 leading-6">
                   <p>{service.description}</p>
                 </div>
-                <div className="leading-4 text-[13px] flex items-center gap-2 mb-4"></div>
-                <div className="font-bold text-xl">
+                <div className="font-bold text-xl mt-auto">
                   <p>${service.price} / day</p>
                 </div>
               </div>
