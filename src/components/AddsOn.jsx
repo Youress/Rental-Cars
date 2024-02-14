@@ -3,7 +3,7 @@ import { useServices } from "../Context/ServicesProvider";
 
 const AddsOn = () => {
   const {handleServiceClick ,services ,slectedServices}= useServices()
-  const [addBox, setAddbox] = useState(services);
+  const [addBox] = useState(services);
   const [clickedIndex, setClickedIndex] = useState(null);
 
   console.log(slectedServices)
@@ -24,9 +24,9 @@ const AddsOn = () => {
     setClickedIndex((prevIndex) => (prevIndex === index ? null : index));
   };
   return (
-    <div className="flex items-center flex-wrap gap-y-8">
+    <div className="flex items-center flex-wrap  mdx:flex-col">
       {filterByCategory.map((service , index) => (
-        <div key={index} className="px-2 mdx:mb-2  mdx:basis-1/3  self-stretch flex flex-[1_1_50%] max-w-[50%] ">
+        <div key={index} className="px-2 mdx:mb-2  mdx:basis-1/3  self-stretch flex flex-[1_1_50%] md:max-w-[50%] mb-4 ">
           <div onClick={()=>{handleClick(index);handleServiceClick(service)}} className={`shadow-box bg-white border-2 w-full  ${
             clickedIndex === index ? "border-primebrand" : ""
           }`}>

@@ -23,7 +23,7 @@ const CarsCard = ({ car, total }) => {
             <p className="text-[rgba(89,89,89,1)] text-[14px]">{description}</p>
           </div>
           <div className="max-w-64 mdx:max-w-full mt-6">
-            <img src={imageUrl} loading="lazy" alt={name} />
+            <img src={imageUrl} loading="lazy" alt={name}  />
           </div>
           <div className=" my-4">
             <div className="flex items-center justify-between py-2">

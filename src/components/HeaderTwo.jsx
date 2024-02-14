@@ -63,7 +63,7 @@ const HeaderTwo = () => {
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 mdx:hidden">
             <div>
               <div>
                 <TbWorld className="text-[20px]" />
@@ -75,7 +75,7 @@ const HeaderTwo = () => {
               </div>
             </div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 mdx:hidden">
             <div>
               <FaUser />
             </div>

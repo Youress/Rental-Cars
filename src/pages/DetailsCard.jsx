@@ -24,7 +24,6 @@ const Milage = () => {
   const [days] = useOutletContext();
   const isPage = location.pathname.includes("/addson");
 
-  console.log(slectedServices)
 
   const handleclick = () => {
     if (location.pathname === `/detailsPage/${id}`) {

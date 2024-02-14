@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CarsCard from "../components/CarsCard";
 import FilterType from "../components/FilterType";
 import { useFilter } from "../Context/FilterReducer";
@@ -6,12 +6,20 @@ import FilterByGear from "../components/FilterBYGear";
 import { useOutletContext } from "react-router-dom";
 import { FaArrowUpLong } from "react-icons/fa6";
 import { FaArrowDownLong } from "react-icons/fa6";
+import Loading from "../components/Loading";
 
 const OfferList = () => {
-  const { state, handleTypeChange, HandleGearChange, clearFilter,sortBYPrice } =
-    useFilter();
+  const {
+    state,
+    handleTypeChange,
+    HandleGearChange,
+    clearFilter,
+    sortBYPrice,
+    loaded,
+  } = useFilter();
   const [sortDrop, setSortDrop] = useState(false);
   const [days] = useOutletContext();
+ 
 
   return (
     <section className="bg-sectiongray pb-4">
@@ -34,16 +42,26 @@ const OfferList = () => {
             </div>
             {sortDrop && (
               <div className="absolute top-full bg-white rounded-md right-0 min-w-60 shadow-2xl  ">
-                <div className="font-bold cursor-pointer px-4 my-4 flex items-center justify-between" onClick={()=>{sortBYPrice("low")}}>
+                <div
+                  className="font-bold cursor-pointer px-4 my-4 flex items-center justify-between"
+                  onClick={() => {
+                    sortBYPrice("low");
+                  }}
+                >
                   <span>
                     <FaArrowUpLong />
                   </span>
                   <p>Price Low to High</p>
                 </div>
-                <div className="font-bold cursor-pointer px-4 my-4 flex items-center justify-between" onClick={()=>{sortBYPrice("high")}}>
+                <div
+                  className="font-bold cursor-pointer px-4 my-4 flex items-center justify-between"
+                  onClick={() => {
+                    sortBYPrice("high");
+                  }}
+                >
                   <span>
                     <FaArrowDownLong />
-                  </span> 
+                  </span>
                   <p>Price High to Low</p>
                 </div>
               </div>
@@ -61,16 +79,15 @@ const OfferList = () => {
           </div>
 
           <div className="min-h-screen	">
-            <div className="flex flex-wrap items-center gap-2 ">
-              {state.filteredCars.map((car) => {
-                return (
-                  <CarsCard car={car} key={car.id} id={car.id} total={days} />
-                );
-              })}
-            </div>
+              <div className="flex flex-wrap items-center gap-2 ">
+                {state.filteredCars.map((car) => {
+                  return (
+                    <CarsCard car={car} key={car.id} id={car.id} total={days}/>
+                  );
+                })}
+              </div>
           </div>
         </div>
-
       </div>
     </section>
   );
