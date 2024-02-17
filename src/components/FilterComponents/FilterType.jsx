@@ -1,5 +1,5 @@
 import React from "react";
-import { useFilter } from "../Context/FilterReducer";
+import { useFilter } from "../../Context/FilterReducer";
 const FilterType = ({ onChange, id }) => {
   const { state } = useFilter();
   return (

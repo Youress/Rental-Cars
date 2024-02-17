@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react";
 import { BsBookmarkStarFill } from "react-icons/bs";
 import { IoCheckmark } from "react-icons/io5";
-import { useServices } from "../Context/ServicesProvider";
+import { useServices } from "../../Context/ServicesProvider";
 
 
 const Protection = () => {

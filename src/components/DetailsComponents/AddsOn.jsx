@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useServices } from "../Context/ServicesProvider";
+import { useServices } from "../../Context/ServicesProvider";
 
 const AddsOn = () => {
   const {handleServiceClick ,services ,slectedServices}= useServices()

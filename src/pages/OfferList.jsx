@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import CarsCard from "../components/CarsCard";
-import FilterType from "../components/FilterType";
+import FilterType from "../components/FilterComponents/FilterType";
 import { useFilter } from "../Context/FilterReducer";
-import FilterByGear from "../components/FilterBYGear";
+import FilterByGear from "../components/FilterComponents/FilterBYGear";
 import { useOutletContext } from "react-router-dom";
 import { FaArrowUpLong } from "react-icons/fa6";
 import { FaArrowDownLong } from "react-icons/fa6";
-import Loading from "../components/Loading";
 
 const OfferList = () => {
   const {
@@ -15,7 +14,7 @@ const OfferList = () => {
     HandleGearChange,
     clearFilter,
     sortBYPrice,
-    loaded,
+    
   } = useFilter();
   const [sortDrop, setSortDrop] = useState(false);
   const [days] = useOutletContext();

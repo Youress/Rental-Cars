@@ -5,8 +5,8 @@ import LayoutHome from "./components/Layout/LayoutHome";
 import LayoutDetails from "./components/Layout/LayoutDetails";
 import OfferList from "./pages/OfferList";
 import DetailsCard from "./pages/DetailsCard";
-import Protection from "./components/Protection";
-import AddsOn from "./components/AddsOn";
+import Protection from "./components/DetailsComponents/Protection";
+import AddsOn from "./components/DetailsComponents/AddsOn";
 function App() {
   return (
     <Routes>
