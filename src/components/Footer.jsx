@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <section className="bg-black text-white py-4">
+    <footer className="bg-black text-white py-4">
       <div className="lg:px-20 mdx:px-8 mx-auto w-full">
         <div className="flex items-center py-4 mdx:flex-col">
           <div>
@@ -21,7 +21,7 @@ const Footer = () => {
           <div className="text-xs text-gray-500">&#169;	SIXT 2024</div>
         </div>
       </div>
-    </section>
+    </footer>
   );
 };
 

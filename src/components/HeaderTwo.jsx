@@ -32,7 +32,7 @@ useEffect(() => {
   };
   return (
     <header className="bg-white text-black flex items-stretch min-h-20 sm:px-8 lg:px-20 shadow-xl">
-      <div className="flex justify-between items-center mx-auto w-[100%] px-4 ">
+      <nav className="flex justify-between items-center mx-auto w-[100%] px-4 ">
         <div className=" flex items-center">
           <div className="mdx:hidden">
             <a href="/">
@@ -99,7 +99,7 @@ useEffect(() => {
             </div>
           </div>
         </div>
-      </div>
+      </nav>
     </header>
   );
 };
