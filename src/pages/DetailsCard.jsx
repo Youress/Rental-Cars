@@ -28,7 +28,7 @@ const Milage = () => {
     if (location.pathname === `/detailsPage/${id}`) {
       navigate("addson");
     } else if (location.pathname === `/detailsPage/${id}/addson`) {
-      navigate("checkout");
+      navigate(`/detailsPage/checkout/${id}`);
     } else {
       navigate(".");
     }

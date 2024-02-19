@@ -7,6 +7,7 @@ import OfferList from "./pages/OfferList";
 import DetailsCard from "./pages/DetailsCard";
 import Protection from "./components/DetailsComponents/Protection";
 import AddsOn from "./components/DetailsComponents/AddsOn";
+import CheckOut from "./pages/CheckOut";
 function App() {
   return (
     <Routes>
@@ -19,6 +20,7 @@ function App() {
           <Route index element={<Protection />} />
           <Route path="addson" element={<AddsOn />} />
         </Route>
+        <Route path="checkout/:id" element={<CheckOut/>}/>
       </Route>
     </Routes>
   );

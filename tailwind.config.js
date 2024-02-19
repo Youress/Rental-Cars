@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       colors: {
         primebrand: "rgba(255,95,0,1)", // Replace 'customColor' with your desired color name
-        secondary: "rgb(244, 244, 249)", // Replace 'customColor' with your desired color name
+        secondary: "rgba(204, 204, 204 , 1)", // Replace 'customColor' with your desired color name
         primegray: "rgba(89,89,89,1)", // Replace 'customColor' with your desired color name
         sectiongray: "rgb(242, 242, 242)", // Replace 'customColor' with your desired color name
       },
@@ -33,9 +33,10 @@ module.exports = {
         // => @media (max-width: 767px) { ... }
 
         smx: { max: "639px" },
-        // => @media (max-width: 639px) { ... }
+        
         mds: { max: "425px" },
-        // => @media (max-width: 639px) { ... }
+
+        mlg: { min: "992px" },
       },
     },
   },

@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { TbWorld } from "react-icons/tb";
 import { FaUser } from "react-icons/fa";
 import { MdModeEdit } from "react-icons/md";
 import { useSearchContext } from "../Context/SearchContext";
+import { useLocation } from "react-router-dom";
 
 const HeaderTwo = () => {
   const search = useSearchContext();
+  const location = useLocation()
+  const [hide , setHide] = useState()
+
+useEffect(() => {
+  if ("/detailsPage/checkout/2" === location.pathname) {
+    setHide(true);
+  } else {
+    setHide(false); // Reset to false if the condition is not met
+  }
+}, [location.pathname]);
+
+  
+  console.log(location)
   const formatDate = (date) => {
     return new Date(date).toLocaleDateString("en-US", {
       month: "short",
@@ -45,7 +59,7 @@ const HeaderTwo = () => {
             </a>
           </div>
         </div>
-        <div className="bg-secondary rounded-md md:min-w-96 font-roboto">
+        <div className={hide ?'hidden' :'bg-secondary rounded-md md:min-w-96 font-roboto'}>
           <div className="py-2 px-4">
             <div className="font-bold text-xs">
               <span>{search.destination}</span>
@@ -75,12 +89,12 @@ const HeaderTwo = () => {
               </div>
             </div>
           </div>
-          <div className="flex items-center gap-2 mdx:hidden">
+          <div className={`flex items-center gap-2 mdx:hidden ${hide ? 'text-secondary' : ''}`}>
             <div>
               <FaUser />
             </div>
             <div className="line-black mdx:hidden">
-              <span className="font-bold text-black">Log in | Register</span>
+              <span className={`font-bold ${hide ? 'text-secondary' : 'text-black'}`}>Log in | Register</span>
             </div>
           </div>
         </div>
