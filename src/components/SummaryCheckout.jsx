@@ -92,7 +92,7 @@ const SummaryCheckout = () => {
           <div className="h-[1.5px] w-full m-auto bg-[#ccc]"></div>
           <div
             className={`smx:relative smx:overflow-hidden ${
-              showInfo ? "smx:h-[360.667px]" : "smx:h-0"
+              showInfo ? "smx:h-[390.667px]" : "smx:h-0"
             } smx:transition-[height] smx:duration-300 smx:ease-out smx:delay-0`}
           >
             <div className="smx:absolute smx:top-0 smx:w-full smx:bg-transparent">
