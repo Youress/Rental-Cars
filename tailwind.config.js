@@ -41,6 +41,9 @@ module.exports = {
         
         mlg: { min: "992px" },
       },
+      rotate: {
+        '270': '270deg',
+      }
     },
   },
   plugins: [],

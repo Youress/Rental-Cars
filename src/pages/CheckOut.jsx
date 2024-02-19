@@ -5,20 +5,26 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const CheckOut = () => {
   let navigate = useNavigate();
-  const location = useLocation()
-  const id = location.state?.id || ""
+  const location = useLocation();
+  const id = location.state?.id || "";
 
   return (
     <section className="px-10 pt-4 bg-white flex flex-col">
       <div className="flex items-center gap-4 py-4">
         <div>
-          <MdKeyboardArrowLeft className="text-4xl cursor-pointer" onClick={()=> navigate(`/detailsPage/${id}/addson`)} />
+          <MdKeyboardArrowLeft
+            className="text-4xl cursor-pointer"
+            onClick={() => navigate(`/detailsPage/${id}/addson`)}
+          />
         </div>
         <div className="">
           <div className="font-bold text-2xl">Review and book</div>
         </div>
       </div>
       <div className="flex f flex-wrap flex-[1_1_auto]">
+        <div className="mmx:hidden smx:mb-8">
+          <SummaryCheckout />
+        </div>
         <div className="mlg:flex-[1_1_75%] mlg:max-w-[75%] md:px-2 flex flex-col flex-[1_0_auto] max-w-full mmx:flex-[1_1_58.33%] mmx:max-w-[58.33%]">
           <div className="px-4">
             <div className="mb-4">
@@ -88,8 +94,8 @@ const CheckOut = () => {
             </div>
           </div>
         </div>
-        <div className="mlg:flex-[1_1_25%] mlg:max-w-[25%] lg:flex-[] lg:max-w-[] mdx:mt-4 sm:flex-[ sm:max-w-[]	">
-          <SummaryCheckout/>
+        <div className="smx:hidden mlg:flex-[1_1_25%] mlg:max-w-[25%] mmx:flex-[1_1_41.6667%] mmx:max-w-[41.6667%]	">
+          <SummaryCheckout />
         </div>
       </div>
     </section>

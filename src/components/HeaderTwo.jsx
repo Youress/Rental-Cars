@@ -31,7 +31,7 @@ useEffect(() => {
     });
   };
   return (
-    <header className="bg-white text-black flex items-stretch min-h-20 sm:px-8 lg:px-20 shadow-xl">
+    <header className={hide ? 'smx:hidden' :"bg-white text-black flex items-stretch min-h-20 sm:px-8 lg:px-20 shadow-xl"}>
       <div className="flex justify-between items-center mx-auto w-[100%] px-4 ">
         <div className=" flex items-center">
           <div className="mdx:hidden">
@@ -60,7 +60,7 @@ useEffect(() => {
             </a>
           </div>
         </div>
-        <div className={hide ?'hidden' :'bg-secondary rounded-md md:min-w-96 font-roboto'}>
+        <div className={hide ?'hidden' :'bg-[rgb(245,245,245)] rounded-md md:min-w-96 font-roboto'}>
           <div className="py-2 px-4">
             <div className="font-bold text-xs">
               <span>{search.destination}</span>
