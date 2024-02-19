@@ -31,7 +31,7 @@ useEffect(() => {
     });
   };
   return (
-    <header className={hide ? 'smx:hidden' :"bg-white text-black flex items-stretch min-h-20 sm:px-8 lg:px-20 shadow-xl"}>
+    <header className="bg-white text-black flex items-stretch min-h-20 sm:px-8 lg:px-20 shadow-xl">
       <div className="flex justify-between items-center mx-auto w-[100%] px-4 ">
         <div className=" flex items-center">
           <div className="mdx:hidden">
