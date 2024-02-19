@@ -11,6 +11,7 @@ module.exports = {
       },
       boxShadow: {
         'box': 'rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px',
+        'borderbox': '0 0 0 2px rgba(26,26,26,1)',
       },
       gridTemplateColumns: {
         auto1fr: "1fr auto",
@@ -33,9 +34,11 @@ module.exports = {
         // => @media (max-width: 767px) { ... }
 
         smx: { max: "639px" },
-        
+
         mds: { max: "425px" },
 
+        mmx: { min: "639px" },
+        
         mlg: { min: "992px" },
       },
     },

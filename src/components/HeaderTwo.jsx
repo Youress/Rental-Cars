@@ -3,15 +3,17 @@ import { TbWorld } from "react-icons/tb";
 import { FaUser } from "react-icons/fa";
 import { MdModeEdit } from "react-icons/md";
 import { useSearchContext } from "../Context/SearchContext";
-import { useLocation } from "react-router-dom";
+import { useLocation ,useParams } from "react-router-dom";
 
 const HeaderTwo = () => {
   const search = useSearchContext();
   const location = useLocation()
   const [hide , setHide] = useState()
+  const { id } = useParams();
+
 
 useEffect(() => {
-  if ("/detailsPage/checkout/2" === location.pathname) {
+  if (`/detailsPage/checkout/${id}` === location.pathname) {
     setHide(true);
   } else {
     setHide(false); // Reset to false if the condition is not met
@@ -19,7 +21,6 @@ useEffect(() => {
 }, [location.pathname]);
 
   
-  console.log(location)
   const formatDate = (date) => {
     return new Date(date).toLocaleDateString("en-US", {
       month: "short",
