@@ -179,7 +179,7 @@ const CheckOut = () => {
             </div>
           </div>
           {/* book button */}
-          <div className="flex items-center flex-col py-6 pl-6 max-w-[25.5rem]">
+          <div className="flex items-center flex-col p-6 max-w-[25.5rem]">
             <button className="bg-primebrand  text-white cursor-pointer min-w-24 px-4 w-full h-12 font-bold text-xl">
               Book
             </button>
