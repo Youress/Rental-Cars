@@ -40,6 +40,8 @@ module.exports = {
         mmx: { min: "639px" },
         
         mlg: { min: "992px" },
+        
+        mlgx: { max: "992px" },
       },
       rotate: {
         '270': '270deg',

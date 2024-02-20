@@ -9,7 +9,7 @@ const CheckOut = () => {
   const id = location.state?.id || "";
 
   return (
-    <section className="px-10 pt-4 bg-white flex flex-col">
+    <section className="px-4 mmx:px-10 pt-4 bg-white flex flex-col">
       <div className="flex items-center gap-4 py-4">
         <div>
           <MdKeyboardArrowLeft
@@ -92,6 +92,81 @@ const CheckOut = () => {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="mmx:py-8 mmx:px-6 py-8">
+            <div className="mb-6">
+              <h4 className="font-bold text-2xl">Driver Details</h4>
+            </div>
+            <form className="mlg:w-6/12 mmx:w-full">
+              <label htmlFor="company">
+                <input
+                  className="form-inpt"
+                  type="text"
+                  placeholder="Company"
+                  name="company"
+                  id="company"
+                />
+              </label>
+            </form>
+            <form>
+              <div className="flex items-center justify-between gap-4">
+                <label htmlFor="FirstName" className="w-6/12">
+                  <input
+                    className="form-inpt"
+                    type="text"
+                    placeholder="First Name"
+                    name="FirstName"
+                    id="FirstName"
+                  />
+                </label>
+                <label htmlFor="LastName" className="w-6/12">
+                  <input
+                    className="form-inpt"
+                    type="text"
+                    placeholder="Last Name"
+                    name="LastName"
+                    id="LastName"
+                  />
+                </label>
+              </div>
+              <div className="flex items-center justify-between gap-4 mlgx:flex-col">
+                <label htmlFor="Email" className="w-6/12 mlgx:w-full">
+                  <input
+                    className="form-inpt"
+                    type="email"
+                    placeholder="Email"
+                    name="email"
+                    id="email"
+                  />
+                </label>
+                <div className="flex items-center w-6/12 justify-between gap-1 mlgx:w-full">
+                  <label htmlFor="CountryCode" className="w-1/4">
+                    <input
+                      className="form-inpt"
+                      type="text"
+                      placeholder="+1"
+                      name="CountryCode"
+                      id="CountryCode"
+                    />
+                  </label>
+                  <label htmlFor="PhoneNumber" className="w-3/4">
+                    <input
+                      className="form-inpt"
+                      type="text"
+                      placeholder="Phone Number"
+                      name="PhoneNumber"
+                      id="PhoneNumber"
+                    />
+                  </label>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <input type="checkbox" name="overage" id="overage" checked />
+                <label for="overage" className="font-normal text-sm">
+                  I am 23 years of age or older
+                </label>
+              </div>
+            </form>
           </div>
         </div>
         <div className="smx:hidden mlg:flex-[1_1_25%] mlg:max-w-[25%] mmx:flex-[1_1_41.6667%] mmx:max-w-[41.6667%]	">
