@@ -48,12 +48,11 @@ export const FilterProvider = ({ children }) => {
         const jsonData = response.data;
         // Dispatch actions after fetching data
         setCars(jsonData);
+        setLoaded(false)
         dispatch({ type: "SET_CARS", payload: jsonData });
         dispatch({ type: "SET_FILTERED_CARS", payload: jsonData });
       } catch (error) {
         console.error("Error fetching data:", error);
-      } finally {
-        setLoaded(false);
       }
     };
 

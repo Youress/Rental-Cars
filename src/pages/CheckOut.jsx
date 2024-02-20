@@ -31,6 +31,7 @@ const CheckOut = () => {
               <h4 className="font-bold text-2xl">Booking options</h4>
             </div>
           </div>
+          {/* Booking Option */}
           <div className="flex flex-col mlg:flex-row ">
             <div className="m-2 ">
               <div className="shadow-borderbox rounded-2xl shadow-black	">
@@ -93,6 +94,7 @@ const CheckOut = () => {
               </div>
             </div>
           </div>
+          {/* Form Card */}
           <div className="mmx:py-8 mmx:px-6 py-8">
             <div className="mb-6">
               <h4 className="font-bold text-2xl">Driver Details</h4>
@@ -167,6 +169,20 @@ const CheckOut = () => {
                 </label>
               </div>
             </form>
+            <div className="p-4 mmx:p-6">
+              <p className="text-sm font-normal">
+                I have read and accept the{" "}
+                <span className="font-bold">rental information,</span> the
+                <span className="font-bold"> terms and conditions</span>, and
+                <span className="font-bold"> the privacy policy</span> .
+              </p>
+            </div>
+          </div>
+          {/* book button */}
+          <div className="flex items-center flex-col py-6 pl-6 max-w-[25.5rem]">
+            <button className="bg-primebrand  text-white cursor-pointer min-w-24 px-4 w-full h-12 font-bold text-xl">
+              Book
+            </button>
           </div>
         </div>
         <div className="smx:hidden mlg:flex-[1_1_25%] mlg:max-w-[25%] mmx:flex-[1_1_41.6667%] mmx:max-w-[41.6667%]	">

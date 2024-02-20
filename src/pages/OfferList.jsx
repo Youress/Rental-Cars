@@ -1,10 +1,11 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import CarsCard from "../components/CarsCard";
 import FilterType from "../components/FilterComponents/FilterType";
 import { useFilter } from "../Context/FilterReducer";
 import FilterByGear from "../components/FilterComponents/FilterBYGear";
 import { useOutletContext } from "react-router-dom";
 import { FaArrowUpLong } from "react-icons/fa6";
+import Loading from "../components/Loading";
 import { FaArrowDownLong } from "react-icons/fa6";
 
 const OfferList = () => {
@@ -14,11 +15,11 @@ const OfferList = () => {
     HandleGearChange,
     clearFilter,
     sortBYPrice,
-    
+    loaded,
   } = useFilter();
   const [sortDrop, setSortDrop] = useState(false);
   const [days] = useOutletContext();
- 
+  console.log(loaded);
 
   return (
     <section className="bg-sectiongray pb-4">
@@ -78,13 +79,13 @@ const OfferList = () => {
           </div>
 
           <div className="min-h-screen	">
-              <div className="flex flex-wrap items-center gap-2 ">
-                {state.filteredCars.map((car) => {
-                  return (
-                    <CarsCard car={car} key={car.id} id={car.id} total={days}/>
-                  );
-                })}
-              </div>
+            <div className="flex flex-wrap items-center gap-2 ">
+            {loaded ? <Loading /> : state.filteredCars.map((car) => (
+  <CarsCard car={car} key={car.id} id={car.id} total={days} />
+))}
+
+              
+            </div>
           </div>
         </div>
       </div>
