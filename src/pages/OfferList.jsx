@@ -22,12 +22,12 @@ const OfferList = () => {
   console.log(loaded);
 
   return (
-    <section className="bg-sectiongray pb-4">
-      <div className="md:px-10 mdx:px-4">
+    <main className="bg-sectiongray pb-4">
+      <section className="md:px-10 mdx:px-4">
         <div className="flex items-center justify-between">
           <div className="">
             <button
-              className="px-2 py-1 text-white bg-primebrand font-bold border rounded-md "
+              className="px-2 py-1  bg-[#D2D2D2] font-bold border rounded-md "
               onClick={() => clearFilter()}
             >
               Rest Filter
@@ -35,10 +35,10 @@ const OfferList = () => {
           </div>
           <div className="px-2 min-h-16 flex items-center relative">
             <div
-              className="ml-auto flex px-2 py-1 text-white bg-primebrand font-bold border rounded-md cursor-pointer  "
+              className="ml-auto flex px-2 py-1 bg-[#D2D2D2] font-bold border rounded-md cursor-pointer  "
               onClick={() => setSortDrop(!sortDrop)}
             >
-              Sort by
+              <span>Sort by</span>
             </div>
             {sortDrop && (
               <div className="absolute top-full bg-white rounded-md right-0 min-w-60 shadow-2xl  ">
@@ -80,16 +80,18 @@ const OfferList = () => {
 
           <div className="min-h-screen	">
             <div className="flex flex-wrap items-center gap-2 ">
-            {loaded ? <Loading /> : state.filteredCars.map((car) => (
-  <CarsCard car={car} key={car.id} id={car.id} total={days} />
-))}
-
-              
+              {loaded ? (
+                <Loading />
+              ) : (
+                state.filteredCars.map((car) => (
+                  <CarsCard car={car} key={car.id} id={car.id} total={days} />
+                ))
+              )}
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 };
 

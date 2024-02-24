@@ -14,9 +14,7 @@ import Loading from "../components/Loading";
 import { useServices } from "../Context/ServicesProvider";
 
 const Milage = () => {
-  const { slectedServices ,totalPrice } = useServices();
-  console.log(totalPrice)
-
+  const { slectedServices, totalPrice } = useServices();
   const [car, setCar] = useState();
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
@@ -57,7 +55,7 @@ const Milage = () => {
     return <Loading />;
   } else {
     return (
-      <section className="mt-4 px-10 bg-sectiongray">
+      <main className="mt-4 px-10 bg-sectiongray">
         <div className="pb-12 pt-4 flex items-center gap-4 ">
           <div className="cursor-pointer">
             <NavLink to={isPage ? "." : ".."}>
@@ -68,12 +66,17 @@ const Milage = () => {
             {isPage ? "Choose your add-ons" : "Choose your protection"}
           </div>
         </div>
-        <div className="flex flex-wrap">
+        <section className="flex flex-wrap">
           {!isPage && (
             <div className="basis-3/4 px-2	">
-              <div className="font-bold text-xl">Loss damage waiver</div>
+              <div className="font-bold text-xl">
+                <p>Loss damage waiver</p>{" "}
+              </div>
               <div className="font-normal mb-8 ">
-                Coverage in the event of theft or damages to the rental vehicle.
+                <p>
+                  Coverage in the event of theft or damages to the rental
+                  vehicle.
+                </p>
               </div>
             </div>
           )}
@@ -145,7 +148,9 @@ const Milage = () => {
                 <div className="pt-4 mb-4">
                   <div className="flex items-center justify-between mb-4">
                     <p className="font-bold ">Total</p>
-                    <p className="font-bold">${(days * car.price) + totalPrice  }</p>
+                    <p className="font-bold">
+                      ${days * car.price + totalPrice}
+                    </p>
                   </div>
                   <div>
                     <p className="text-primebrand font-bold">Price details</p>
@@ -160,8 +165,8 @@ const Milage = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
     );
   }
 };

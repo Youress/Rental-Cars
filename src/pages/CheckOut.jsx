@@ -172,8 +172,8 @@ const CheckOut = () => {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <input type="checkbox" name="overage" id="overage" checked />
-                <label for="overage" className="font-normal text-sm">
+                <input type="checkbox" name="overage" id="overage" readOnly  />
+                <label htmlFor="overage" className="font-normal text-sm">
                   I am 23 years of age or older
                 </label>
               </div>

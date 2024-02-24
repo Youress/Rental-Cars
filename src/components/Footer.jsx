@@ -18,7 +18,7 @@ const Footer = () => {
               <li>Terms & conditions</li>
             </ul>
           </div>
-          <div className="text-xs text-gray-500">&#169;	SIXT 2024</div>
+          <div className="text-xs text-[#B1B5BE]">&#169;	SIXT 2024</div>
         </div>
       </div>
     </footer>
