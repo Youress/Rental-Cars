@@ -29,7 +29,7 @@ const CarsCard = ({ car, total }) => {
             onClick={() => navigate(`${id}`)}
             className="max-w-64 mdx:max-w-full mt-6"
           >
-            <img src={imageUrl} loading="lazy" alt={name} />
+            <img src={imageUrl} width={'100%'} height={'100%'} loading="lazy" alt={name} />
           </button>
           <div className=" my-4">
             <div className="flex items-center justify-between py-2">

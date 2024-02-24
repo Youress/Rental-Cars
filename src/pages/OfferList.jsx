@@ -15,11 +15,9 @@ const OfferList = () => {
     HandleGearChange,
     clearFilter,
     sortBYPrice,
-    loaded,
   } = useFilter();
   const [sortDrop, setSortDrop] = useState(false);
   const [days] = useOutletContext();
-  console.log(loaded);
 
   return (
     <main className="bg-sectiongray pb-4">
@@ -80,13 +78,9 @@ const OfferList = () => {
 
           <div className="min-h-screen	">
             <div className="flex flex-wrap items-center gap-2 ">
-              {loaded ? (
-                <Loading />
-              ) : (
-                state.filteredCars.map((car) => (
-                  <CarsCard car={car} key={car.id} id={car.id} total={days} />
-                ))
-              )}
+              {state.filteredCars.map((car) => (
+                <CarsCard car={car} key={car.id} id={car.id} total={days} />
+              ))}
             </div>
           </div>
         </div>

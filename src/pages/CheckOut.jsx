@@ -2,11 +2,13 @@ import React ,{useEffect} from "react";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import SummaryCheckout from "../components/SummaryCheckout";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useServices } from "../Context/ServicesProvider";
 
 const CheckOut = () => {
   let navigate = useNavigate();
   const location = useLocation();
   const id = location.state?.id || "";
+  const { totalPrice } = useServices();
 
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -18,7 +20,7 @@ const CheckOut = () => {
   },[]);
 
   return (
-    <section className="px-4 mmx:px-10 pt-4 bg-white flex flex-col">
+    <section className="px-4 mmx:px-10 pt-4 bg-white flex flex-col relative">
       <div className="flex items-center gap-4 py-4">
         <div>
           <MdKeyboardArrowLeft
@@ -188,8 +190,8 @@ const CheckOut = () => {
             </div>
           </div>
           {/* book button */}
-          <div className="flex items-center flex-col p-6 max-w-[25.5rem]">
-            <button className="bg-primebrand  text-white cursor-pointer min-w-24 px-4 w-full h-12 font-bold text-xl">
+          <div className="flex items-center flex-col p-6 max-w-[25.5rem] mds:sticky mds:bg-white mds:bottom-0">
+            <button className="bg-primebrand  text-white cursor-pointer min-w-24 px-4 w-full h-12 font-bold text-xl rounded-xl">
               Book
             </button>
           </div>

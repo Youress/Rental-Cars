@@ -52,7 +52,7 @@ const SummaryCheckout = () => {
   } else {
     return (
       <div className="px-2 ">
-        <div className=" bg-white p-6 shadow-box">
+        <div className=" bg-[rgb(235,235,240)] p-6 shadow-box">
           <div className="flex mb-4 ">
             <div className="mmx:flex-[0_0_6rem] flex-[0_0_6.75rem]">
               <img src={car.imageUrl} alt={car.name} />

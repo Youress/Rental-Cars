@@ -36,7 +36,6 @@ const FilterContext = createContext();
 export const FilterProvider = ({ children }) => {
   const [state, dispatch] = useReducer(filterReducer, initialState);
   const [cars, setCars] = useState();
-  const [loaded ,setLoaded] = useState(true)
   useEffect(() => {
     // Function to fetch data
     const fetchData = async () => {
@@ -48,7 +47,6 @@ export const FilterProvider = ({ children }) => {
         const jsonData = response.data;
         // Dispatch actions after fetching data
         setCars(jsonData);
-        setLoaded(false)
         dispatch({ type: "SET_CARS", payload: jsonData });
         dispatch({ type: "SET_FILTERED_CARS", payload: jsonData });
       } catch (error) {
@@ -122,7 +120,6 @@ const sortBYPrice = (price) =>{
         clearFilter,
         HandleGearChange,
         sortBYPrice,
-        loaded,
       }}
     >
       {children}

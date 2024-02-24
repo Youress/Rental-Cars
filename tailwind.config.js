@@ -35,7 +35,7 @@ module.exports = {
 
         smx: { max: "639px" },
 
-        mds: { max: "425px" },
+        mds: { max: "426px" },
 
         mmx: { min: "639px" },
         
