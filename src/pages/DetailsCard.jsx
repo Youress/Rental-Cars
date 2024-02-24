@@ -14,7 +14,8 @@ import Loading from "../components/Loading";
 import { useServices } from "../Context/ServicesProvider";
 
 const Milage = () => {
-  const { slectedServices } = useServices();
+  const { slectedServices ,totalPrice } = useServices();
+  console.log(totalPrice)
 
   const [car, setCar] = useState();
   const [loading, setLoading] = useState(true);
@@ -114,6 +115,12 @@ const Milage = () => {
                     </span>
                     Drive up to 6,600 km, pay $0.15 per additional km
                   </li>
+                  <li className="flex items-center pb-4 gap-2">
+                    <span>
+                      <IoCheckmark className="text-2xl" />
+                    </span>
+                    MAD 16,000.00 (approx. $1,594.34) financial responsibility
+                  </li>
                   {slectedServices.map((service) => (
                     <li
                       key={service.id}
@@ -138,7 +145,7 @@ const Milage = () => {
                 <div className="pt-4 mb-4">
                   <div className="flex items-center justify-between mb-4">
                     <p className="font-bold ">Total</p>
-                    <p className="font-bold">${days * car.price}</p>
+                    <p className="font-bold">${(days * car.price) + totalPrice  }</p>
                   </div>
                   <div>
                     <p className="text-primebrand font-bold">Price details</p>

@@ -6,6 +6,7 @@ export const useServices = () => useContext(ServicesContext);
 
 const ServicesProvider = ({ children }) => {
   const [services, setServices] = useState(data);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const [slectedServices ,setSelectedServices] = useState(services.filter(service => service.selected)) 
 
@@ -18,9 +19,11 @@ const ServicesProvider = ({ children }) => {
 
     const updateSelectedServices = updateServices.filter((service)=> service.selected)
     setSelectedServices(updateSelectedServices)
+    const newTotalPrice = updateSelectedServices.reduce((total, service) => total + service.price, 0);
+    setTotalPrice(newTotalPrice)
   }
   return (
-    <ServicesContext.Provider value={{services , setServices ,slectedServices,handleServiceClick}}>
+    <ServicesContext.Provider value={{services , setServices ,slectedServices,handleServiceClick ,totalPrice}}>
       {children}
     </ServicesContext.Provider>
   )

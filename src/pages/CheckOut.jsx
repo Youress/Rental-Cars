@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useEffect} from "react";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import SummaryCheckout from "../components/SummaryCheckout";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -7,6 +7,15 @@ const CheckOut = () => {
   let navigate = useNavigate();
   const location = useLocation();
   const id = location.state?.id || "";
+
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+
+  useEffect(() => {
+    handleScrollToTop();
+  },[]);
 
   return (
     <section className="px-4 mmx:px-10 pt-4 bg-white flex flex-col">

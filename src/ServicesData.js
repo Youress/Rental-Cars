@@ -13,7 +13,7 @@ const services = [
     price: 10.87,
     protection: "Includes theft protection",
     category: "protection",
-    selected: true,
+    selected: false,
   },
   {
     id: 2,

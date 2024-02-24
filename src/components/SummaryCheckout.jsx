@@ -10,7 +10,7 @@ import { useSearchContext } from "../Context/SearchContext";
 import { IoIosArrowBack } from "react-icons/io";
 
 const SummaryCheckout = () => {
-  const { slectedServices } = useServices();
+  const { slectedServices ,totalPrice } = useServices();
   const search = useSearchContext();
   const [car, setCar] = useState();
   const [loading, setLoading] = useState(true);
@@ -160,7 +160,7 @@ const SummaryCheckout = () => {
                 <div className="pt-4 mb-4">
                   <div className="flex items-center justify-between mb-4">
                     <p className="font-bold ">Total</p>
-                    <p className="font-bold">${days * car.price}</p>
+                    <p className="font-bold">${(days * car.price) + totalPrice}</p>
                   </div>
                   <div>
                     <p className="text-primebrand font-bold">Price details</p>
