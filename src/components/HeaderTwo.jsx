@@ -3,24 +3,36 @@ import { TbWorld } from "react-icons/tb";
 import { FaUser } from "react-icons/fa";
 import { MdModeEdit } from "react-icons/md";
 import { useSearchContext } from "../Context/SearchContext";
-import { useLocation ,useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
+import DatePicker from "react-datepicker";
+import { FaCar } from "react-icons/fa";
 
 const HeaderTwo = () => {
   const search = useSearchContext();
-  const location = useLocation()
-  const [hide , setHide] = useState()
+  const location = useLocation();
+  const [hide, setHide] = useState();
   const { id } = useParams();
+  const [Modelooen, setModelopen] = useState(false);
+  const [destination, setDestination] = useState(search.destination);
+  const [checkIn, setCheckIn] = useState(search.checkIn);
+  const [checkOut, setCheckOut] = useState(search.checkOut);
+  const handleSubmit = (event) => {
+    setModelopen(!Modelooen);
+    event.preventDefault();
+    search.saveSearchValues(destination, checkIn, checkOut);
+  };
 
+  useEffect(() => {
+    if (`/detailsPage/checkout/${id}` === location.pathname) {
+      setHide(true);
+    } else {
+      setHide(false); // Reset to false if the condition is not met
+    }
+  }, [location.pathname]);
+  const minDate = new Date();
+  const maxDate = new Date();
+  maxDate.setFullYear(maxDate.getFullYear() + 1);
 
-useEffect(() => {
-  if (`/detailsPage/checkout/${id}` === location.pathname) {
-    setHide(true);
-  } else {
-    setHide(false); // Reset to false if the condition is not met
-  }
-}, [location.pathname]);
-
-  
   const formatDate = (date) => {
     return new Date(date).toLocaleDateString("en-US", {
       month: "short",
@@ -32,6 +44,101 @@ useEffect(() => {
   };
   return (
     <header className="bg-white text-black flex items-stretch min-h-20 sm:px-8 lg:px-20 shadow-xl">
+      {Modelooen && (
+        <div
+          onClick={() => setModelopen(!Modelooen)}
+          className="overlay-modal"
+        ></div>
+      )}
+
+      <div
+      
+        className={`bg-white rounded pt-4 fixed inset-0 z-[999] h-72 ${Modelooen ? 'translate-y-0' : '-translate-y-full'} duration-1000 ease-in-out mds:h-auto`} 
+      >
+        <div className="w-[calc(100%-30vh)] mx-auto py-10 mds:py-2 mds:w-full">
+          <div>
+            <div className="px-4">
+              <div className=" bg-black rounded-[50vmin] w-fit text-white">
+                <div className="p-2 flex items-center">
+                  <span className="mr-2">
+                    <FaCar className="text-[15px]" />
+                  </span>
+                  <span className="">Cars</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form onSubmit={handleSubmit}>
+            <div className="flex flex-col p-4	">
+              <div className="flex flex-col relative">
+                <div className=" bg-white p-2 max-w-96">
+                  <label htmlFor="destin-ion">Pick-up & return</label>
+                  <input
+                    required
+                    id="destin-ion"
+                    placeholder="Where are you going?"
+                    className="text-md w-full focus:outline-none border py-2 px-4 rounded-md "
+                    value={destination}
+                    onChange={(event) => setDestination(event.target.value)}
+                  />
+                </div>
+              </div>
+              <div className="flex mlg:items-center justify-between mds:flex-col ">
+                <div className="flex  px-2 py-1 gap-2 mds:flex-col max-w-[800px]">
+                  <div className="w-[200px] mdx:w-full">
+                    <label>Pick-up date</label>
+                    <DatePicker
+                      required
+                      selected={checkIn}
+                      onChange={(date) => setCheckIn(date)}
+                      selectsStart
+                      dateFormat="MM:dd:yyyy | hh:mm"
+                      startDate={checkIn}
+                      endDate={checkOut}
+                      minDate={minDate}
+                      maxDate={maxDate}
+                      showTimeSelect
+                      timeIntervals={60}
+                      timeFormat="hh:mm"
+                      placeholderText="Check-in Date"
+                      className="min-w-full bg-white p-2 focus:outline-none border rounded-md"
+                      wrapperClassName="min-w-full"
+                    />
+                  </div>
+                  <div className="w-[200px] mdx:w-full">
+                    <label>Return date</label>
+                    <DatePicker
+                      required
+                      selected={checkOut}
+                      onChange={(date) => setCheckOut(date)}
+                      selectsStart
+                      dateFormat="MM:dd:yyyy | hh:mm"
+                      startDate={checkIn}
+                      endDate={checkOut}
+                      minDate={minDate}
+                      maxDate={maxDate}
+                      showTimeSelect
+                      timeIntervals={60}
+                      timeFormat="hh:mm"
+                      placeholderText="Check-out Date"
+                      className="min-w-full bg-white p-2 focus:outline-none border rounded-md"
+                      wrapperClassName="min-w-full"
+                    />
+                  </div>
+                </div>
+
+                <div className="mds:mt-2 mds:px-2">
+                  <button className="w-fit bg-primebrand rounded-md px-8 text-white h-full p-2 delay-300  font-bold text-xl mdx:p-2">
+                    Show Cars
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
       <nav className="flex justify-between items-center mx-auto w-[100%] px-4 ">
         <div className=" flex items-center">
           <div className="mdx:hidden">
@@ -60,7 +167,13 @@ useEffect(() => {
             </a>
           </div>
         </div>
-        <div className={hide ?'hidden' :'bg-[rgb(245,245,245)] rounded-md md:min-w-96 font-roboto'}>
+        <div
+          className={
+            hide
+              ? "hidden"
+              : "bg-[rgb(245,245,245)] rounded-md md:min-w-96 font-roboto"
+          }
+        >
           <div className="py-2 px-4">
             <div className="font-bold text-xs">
               <span>{search.destination}</span>
@@ -71,7 +184,10 @@ useEffect(() => {
                 <span className="mx-2">|</span>
                 <span>{formatDate(search.checkOut)}</span>
               </div>
-              <div className="mdx:ml-4 mb-2">
+              <div
+                className="mdx:ml-4 mb-2 cursor-pointer"
+                onClick={() => setModelopen(!Modelooen)}
+              >
                 <MdModeEdit className="text-[25px] mdx:text-[20px]" />
               </div>
             </div>
@@ -90,12 +206,22 @@ useEffect(() => {
               </div>
             </div>
           </div>
-          <div className={`flex items-center gap-2 mdx:hidden ${hide ? 'text-secondary' : ''}`}>
+          <div
+            className={`flex items-center gap-2 mdx:hidden ${
+              hide ? "text-secondary" : ""
+            }`}
+          >
             <div>
               <FaUser />
             </div>
             <div className="line-black mdx:hidden">
-              <span className={`font-bold ${hide ? 'text-secondary' : 'text-black'}`}>Log in | Register</span>
+              <span
+                className={`font-bold ${
+                  hide ? "text-secondary" : "text-black"
+                }`}
+              >
+                Log in | Register
+              </span>
             </div>
           </div>
         </div>
